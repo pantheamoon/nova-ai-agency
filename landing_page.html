@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova AI Agency | Content That Works While You Sleep</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .urgency-bar {
+            background: linear-gradient(90deg, #ff4757, #ff6348);
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 24px;
+            color: #888;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+            color: #fff;
+            padding: 20px 60px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+        
+        .social-proof {
+            padding: 60px 0;
+            background: #0f0f23;
+            text-align: center;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #00ff88;
+        }
+        
+        .stat-label {
+            color: #888;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .pricing {
+            padding: 80px 0;
+        }
+        
+        .pricing h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f23 100%);
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: #00d4ff;
+        }
+        
+        .pricing-card.popular {
+            border-color: #00d4ff;
+            transform: scale(1.05);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .package-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .package-price {
+            font-size: 56px;
+            font-weight: 800;
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+        
+        .package-price span {
+            font-size: 20px;
+            color: #888;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #ff4757;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .package-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            color: #ccc;
+        }
+        
+        .package-features li:before {
+            content: "✓ ";
+            color: #00ff88;
+            font-weight: bold;
+        }
+        
+        .buy-button {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .buy-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        .guarantee {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f23 100%);
+            text-align: center;
+        }
+        
+        .guarantee h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .guarantee-box {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .faq {
+            padding: 80px 0;
+        }
+        
+        .faq h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+        }
+        
+        .faq-item {
+            background: #1a1a2e;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .faq-item h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+        
+        .faq-item p {
+            color: #888;
+        }
+        
+        .final-cta {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f23 100%);
+        }
+        
+        .final-cta h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            font-size: 20px;
+            color: #888;
+            margin-bottom: 40px;
+        }
+        
+        .spots-left {
+            background: #ff4757;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="urgency-bar">
+        🔥 FLASH SALE: 50% OFF ENDS IN <span id="countdown">23:59:59</span> • ONLY 7 SPOTS LEFT
+    </div>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Content That Works While You Sleep</h1>
+            <p>AI creates 40+ pieces of content for your business every month. Blog posts, social media, emails — all done for you. Zero writing required.</p>
+            <a href="#pricing" class="cta-button">Get 50% Off Now →</a>
+        </div>
+    </section>
+    
+    <section class="social-proof">
+        <div class="container">
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">£1,700</div>
+                    <div class="stat-label">Revenue in Week 1</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">47</div>
+                    <div class="stat-label">Content Pieces Delivered</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Hours You Spend</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Choose Your Package</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="package-name">Content Starter</div>
+                    <div class="original-price">£994</div>
+                    <div class="package-price">£497<span>/mo</span></div>
+                    <p>Perfect for small businesses starting with AI content</p>
+                    <ul class="package-features">
+                        <li>8 blog posts per month</li>
+                        <li>16 social media posts</li>
+                        <li>2 email newsletters</li>
+                        <li>Basic SEO optimization</li>
+                        <li>48-hour delivery</li>
+                    </ul>
+                    <button class="buy-button" onclick="window.location.href='https://paypal.me/novalloyd/497'">Get Started →</button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="package-name">Growth Engine</div>
+                    <div class="original-price">£1,994</div>
+                    <div class="package-price">£997<span>/mo</span></div>
+                    <p>For businesses ready to scale their content marketing</p>
+                    <ul class="package-features">
+                        <li>20 blog posts per month</li>
+                        <li>40 social media posts</li>
+                        <li>4 email newsletters</li>
+                        <li>Advanced SEO + keywords</li>
+                        <li>Content calendar included</li>
+                        <li>24-hour delivery</li>
+                        <li>2 revisions included</li>
+                    </ul>
+                    <button class="buy-button" onclick="window.location.href='https://paypal.me/novalloyd/997'">Get Started →</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="package-name">Market Domination</div>
+                    <div class="original-price">£3,994</div>
+                    <div class="package-price">£1,997<span>/mo</span></div>
+                    <p>Complete content domination across all channels</p>
+                    <ul class="package-features">
+                        <li>Unlimited blog posts</li>
+                        <li>Unlimited social posts</li>
+                        <li>Weekly email campaigns</li>
+                        <li>Video scripts (4/month)</li>
+                        <li>LinkedIn thought leadership</li>
+                        <li>Same-day delivery</li>
+                        <li>Unlimited revisions</li>
+                        <li>Dedicated AI agent</li>
+                    </ul>
+                    <button class="buy-button" onclick="window.location.href='https://paypal.me/novalloyd/1997'">Get Started →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="guarantee">
+        <div class="container">
+            <h2>100% Money-Back Guarantee</h2>
+            <div class="guarantee-box">
+                <h3>"Love It or Leave It"</h3>
+                <p>If you're not completely satisfied with your content in the first 7 days, I'll refund every penny. No questions asked. No hard feelings.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>How does the AI create content?</h3>
+                <p>Our AI analyzes your brand voice, industry trends, and competitor content to create unique, engaging posts. Every piece is optimized for engagement and SEO.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Is the content original?</h3>
+                <p>Yes. Every piece is created fresh by our AI. No templates. No spinning. Original content tailored to your brand.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>What if I don't like the content?</h3>
+                <p>We include revisions in all packages. Growth gets 2 revisions, Domination gets unlimited. Plus our 7-day money-back guarantee.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>How fast do I get my content?</h3>
+                <p>Starter: 48 hours. Growth: 24 hours. Domination: Same day. We prioritize speed without sacrificing quality.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can I cancel anytime?</h3>
+                <p>Absolutely. No contracts. No commitments. Cancel whenever you want. Keep any content we've already delivered.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="final-cta">
+        <div class="container">
+            <div class="spots-left">⚡ ONLY 7 SPOTS LEFT AT 50% OFF</div>
+            <h2>Ready to 10x Your Content?</h2>
+            <p>Join the businesses using AI to dominate their content game.<br>Offer ends in 24 hours.</p>
+            <a href="#pricing" class="cta-button">Claim Your 50% Discount →</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Nova AI Agency. All rights reserved.</p>
+            <p>Questions? Email: hello@novaai.agency</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
